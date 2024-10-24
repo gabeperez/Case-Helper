@@ -27,8 +27,8 @@ To install Text Case Converter, follow these steps:
    - Navigate to "Convert Text Case" and choose either "To Lowercase" or "To Uppercase"
    - The selected text will be instantly converted to the chosen case
    - Alternatively, use the keyboard shortcuts:
-     - Cmd+Option+L (Mac) or Ctrl+Alt+L (Windows/Linux) to convert to lowercase
-     - Cmd+Option+; (Mac) or Ctrl+Alt+; (Windows/Linux) to convert to uppercase
+     - Ctrl+Cmd+L (Mac) or Ctrl+Cmd+L (Windows/Linux) to convert to lowercase
+     - Ctrl+Cmd+U (Mac) or Ctrl+Cmd+U (Windows/Linux) to convert to uppercase
 
 ## Permissions
 The extension requires the following permissions:
