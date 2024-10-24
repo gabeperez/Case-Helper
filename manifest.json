@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Text Case Converter",
+  "version": "1.0",
+  "description": "Convert selected text to uppercase or lowercase",
+  "permissions": [
+    "activeTab",
+    "contextMenus",
+    "commands"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "commands": {
+    "to-lowercase": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+L",
+        "mac": "MacCtrl+Command+L"
+      },
+      "description": "Convert selected text to lowercase"
+    },
+    "to-uppercase": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+U",
+        "mac": "MacCtrl+Command+U"
+      },
+      "description": "Convert selected text to uppercase"
+    }
+  }
+}
