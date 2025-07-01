@@ -8,6 +8,9 @@
     "contextMenus",
     "commands"
   ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
   "background": {
     "service_worker": "background.js"
   },
@@ -32,5 +35,8 @@
       },
       "description": "Convert selected text to uppercase"
     }
+  },
+  "action": {
+    "default_title": "Text Case Converter"
   }
 }
