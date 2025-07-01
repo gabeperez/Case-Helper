@@ -11,8 +11,29 @@ function replaceSelectedText(replacement) {
   return true;
 }
 
+function replaceSelectedTextInputOrTextarea(element, action) {
+  const start = element.selectionStart;
+  const end = element.selectionEnd;
+  if (start === end) return false;
+  const original = element.value.substring(start, end);
+  const converted = action === "toLowerCase" ? original.toLowerCase() : original.toUpperCase();
+  element.setRangeText(converted, start, end, 'end');
+  // Optionally, trigger input event for frameworks
+  element.dispatchEvent(new Event('input', { bubbles: true }));
+  return true;
+}
+
 function convertCase(action) {
   try {
+    const active = document.activeElement;
+    if (active && (active.tagName === 'TEXTAREA' || (active.tagName === 'INPUT' && active.type === 'text'))) {
+      const replaced = replaceSelectedTextInputOrTextarea(active, action);
+      if (!replaced) {
+        console.warn("Case Helper: No text selected in input/textarea.");
+      }
+      return;
+    }
+    // Fallback to content-editable or normal selection
     const selection = window.getSelection();
     if (selection.toString()) {
       const convertedText = action === "toLowerCase"
